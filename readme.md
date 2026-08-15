@@ -171,3 +171,5 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 <!-- Version: GRag v2.0 Production Release -->
 
 ### Speech-to-Text: Sarvam AI Saaras v3
+
+### Vector Database: MongoDB Atlas HNSW Vector Search
