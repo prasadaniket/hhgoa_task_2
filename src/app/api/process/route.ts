@@ -15,9 +15,10 @@ export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
     const audioFile = formData.get("audio") as Blob | null;
+    const textQuery = formData.get("textQuery") as string | null;
 
-    if (!audioFile) {
-      return new Response(JSON.stringify({ error: "No audio file provided" }), {
+    if (!audioFile && !textQuery) {
+      return new Response(JSON.stringify({ error: "No audio or text query provided" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
@@ -33,13 +34,21 @@ export async function POST(req: NextRequest) {
         const startTime = performance.now();
 
         try {
-          // 1. Speech-to-Text
-          const transcript = await transcribeAudio(audioFile);
-          const sttTime = performance.now();
-          sendEvent({
-            type: "transcript",
-            text: transcript,
-          });
+          // 1. Speech-to-Text (skip if text query provided directly)
+          let transcript: string;
+          let sttTime: number;
+
+          if (textQuery) {
+            // Text input path — no STT needed
+            transcript = textQuery;
+            sttTime = performance.now();
+            sendEvent({ type: "transcript", text: transcript });
+          } else {
+            // Audio path — run Sarvam STT
+            transcript = await transcribeAudio(audioFile!);
+            sttTime = performance.now();
+            sendEvent({ type: "transcript", text: transcript });
+          }
 
           // 1.5. Safety/Guardrail Check
           // Extremely fast keyword check or lightweight semantic check
