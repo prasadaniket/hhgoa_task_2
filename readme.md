@@ -164,3 +164,4 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 <!-- Dataset: ai4bharat/MSMARCO-XI 241,572 passages -->
 <!-- Submission Details: Team Probix #RAGInGoa -->
 <!-- STT: Sarvam AI Saaras v3 Hindi & Marathi integration -->
+<!-- Database: MongoDB Atlas Vector Search () with HNSW -->
