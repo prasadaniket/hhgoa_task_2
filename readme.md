@@ -1,31 +1,95 @@
-# Voice-Enabled RAG System - HH Goa 2026
+# 🎙️ Voice-Enabled RAG Model | HH Goa 2026 Task 2
 
-![RAGInGoa](https://img.shields.io/badge/Status-In_Progress-brightgreen?style=for-the-badge)
+### 🚀 Developed by **Team Probix**
+
+### 🏷️ Mandatory Hashtag: **`#RAGInGoa`**
+
+![Team Probix](https://img.shields.io/badge/Team-Probix-blue?style=for-the-badge&logo=github)
+![HH Goa 2026](https://img.shields.io/badge/HH_Goa_2026-Task_2-blueviolet?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-In_Progress-brightgreen?style=for-the-badge)
+![Latency SLA](https://img.shields.io/badge/Latency_Target-%3C50ms-flash?style=for-the-badge&color=brightgreen)
+![Dataset](https://img.shields.io/badge/Dataset-MSMARCO--XI-orange?style=for-the-badge)
 ![Tech Stack](https://img.shields.io/badge/Tech-Next.js%20%7C%20OpenRouter%20%7C%20MongoDB-blue?style=for-the-badge)
+
+---
 
 ## 📌 Project Overview
 
-This project is an end-to-end **Voice-Enabled Retrieval-Augmented Generation (RAG) System** built for the **HH Goa 2026 Task 2**. The system accepts user voice input, transcribes it, searches through the AI4Bharat MSMARCO-XI dataset using advanced chunking strategies, and returns an accurate, contextually grounded answer.
+This repository contains the implementation plan and codebase for **HH Goa 2026 Shortlisting Task 2: Build a Voice-Enabled RAG Model**, crafted by **Team Probix** (`#RAGInGoa`).
 
-Engineered with extreme performance in mind, this pipeline is designed to execute the full retrieval and generation loop in **under 50ms**.
+The project builds an end-to-end, ultra-low-latency (<50ms target) Retrieval-Augmented Generation pipeline. A user speaks a question, the pipeline transcribes it using STT (Sarvam AI / ElevenLabs), retrieves relevant context chunks from the **MSMARCO-XI** dataset, orchestrates answer generation within an agentic model harness using Vercel AI SDK, and enforces strict guardrails before outputting the final response.
 
-## ✨ Features
+---
 
-- **Voice-to-Text Pipeline:** Powered by [Sarvam/ElevenLabs].
-- **Advanced Context Retrieval:** Utilizes semantic and metadata-aware chunking, overlap handling, and high-speed vector search.
-- **Sub-50ms Latency:** Highly optimized LLM generation and orchestration to meet strict latency demands.
-- **Safety & Guardrails:** Built-in safeguards against unsafe inputs, off-topic queries, and AI hallucinations. If the answer isn't in the dataset, the system refuses to guess.
-- **Robust Orchestration:** Fully structured harness handling tool calls, retries, and errors automatically.
+## 📐 Architecture & Pipeline Flow
 
-## 📊 Latency Analytics
+```
+ ┌─────────────┐       ┌─────────────────┐       ┌───────────────────────┐
+ │ Voice Input │ ────► │ Speech-To-Text  │ ────► │ Chunking & Vector DB  │
+ │ (Mic/Audio) │       │ (Sarvam/Eleven) │       │  (MSMARCO-XI Dataset) │
+ └─────────────┘       └─────────────────┘       └──────────┬────────────┘
+                                                            │
+ ┌─────────────┐       ┌─────────────────┐                  │
+ │ Final Text  │ ◄──── │ Guardrails &    │ ◄────────────────┘
+ │   Output    │       │ Agent Harness   │
+ └─────────────┘       └─────────────────┘
+```
 
-We measure real-time performance across test queries. Current pipeline benchmarks:
+```mermaid
+graph LR
+    A[Voice Input] -->|Audio Stream| B[STT Engine: Sarvam / ElevenLabs]
+    B -->|Transcribed Query| C[Query Embedding & Vector DB Retrieval]
+    C -->|Top-K Context Chunks| D[Agent Harness & Orchestration]
+    D -->|Groundedness & Safety| E[Guardrails Layer]
+    E -->|Verified Response| F[Final Answer Output]
+```
+
+---
+
+## ✨ Technical Requirements Checklist
+
+### 1. 🎙️ Speech-to-Text (STT) Integration
+
+- [ ] **Engine Selection**: Integration with either **Sarvam AI** or **ElevenLabs** API for fast audio transcription.
+- [ ] **Streaming Support**: Low-latency audio buffer streaming to minimize TTFT (Time-To-First-Token).
+
+### 2. 🧩 Advanced Multi-Strategy Chunking
+
+Rather than a single naive fixed-size chunking approach, **Team Probix** implements diverse chunking strategies tailored to document structure:
+
+- [ ] **Semantic Chunking**: Grouping sentences by semantic similarity thresholds.
+- [ ] **Recursive / Sliding Window Chunking**: Dynamic overlap handling to preserve context boundaries across chunks.
+- [ ] **Metadata-Aware Splitting**: Preserving document metadata (passage IDs, headers, topic tags) alongside text chunks for filtered retrieval.
+
+### 3. ⚡ Sub-50ms Latency Target
+
+- [ ] **End-to-End SLA**: The complete pipeline — `Audio Transcribe + Vector DB Retrieval + Harness + Guardrails + Answer Generation` — executes in **under 50ms**.
+- [ ] **Optimizations**:
+  - OpenRouter edge-optimized free models for low latency.
+  - Next.js Edge Functions to avoid cold starts.
+  - MongoDB Atlas Vector Search (free tier) located in the nearest region.
+  - Parallelized execution for STT decoding and query pre-processing.
+
+### 4. 📊 Latency Analytics
+
+Built-in benchmark harness to measure latency metrics across a set of test queries.
 
 - **P50 Latency:** `[XX] ms`
 - **P70 Latency:** `[XX] ms`
 - **P100 Latency:** `[XX] ms`
+  _(Update with final metrics prior to submission)._
 
-_(Update with final metrics prior to submission)._
+### 5. 🛠️ Agentic Model Harness
+
+- [ ] **Structured Orchestration**: Model is wrapped in a robust execution harness using Zod and Vercel AI SDK.
+- [ ] **Tool Calling & Fallbacks**: Automated retries, structured JSON input/output schemas, and failure recovery.
+
+### 6. 🛡️ Guardrails Layer
+
+- [ ] **Groundedness & Hallucination Checks**: Ensures answers are strictly derived from retrieved context. If the answer isn't in the dataset, the system refuses to guess.
+- [ ] **Off-Topic & Safety Filters**: Rejects out-of-scope, inappropriate, or malicious queries gracefully (knowing _when not to answer_).
+
+---
 
 ## 🚀 Getting Started
 
@@ -69,16 +133,27 @@ _(Update with final metrics prior to submission)._
    npm run dev
    ```
 
-## 🎥 Project Videos
+---
 
-- **[Video 1: Our Process](#)** _(90 seconds detailing how we approached the problem)_
-- **[Video 2: End-to-End Demo](#)** _(Live working demo of the voice-enabled RAG)_
+## 📋 Submission Requirements Checklist
 
-## 🤝 Team
-
-- [Member 1 Name](https://github.com/member1)
-- [Member 2 Name](https://github.com/member2)
+- [ ] **Form Submission**: Completed submission form at `https://forms.gle/MNvCjcv23Hn2Eeu58`
+- [ ] **GitHub Repository**: Pushed code to public GitHub repo with complete documentation.
+- [ ] **Live Working Link**: Deployed live working demo of the Voice-Enabled RAG pipeline.
+- [ ] **Video 1 (Process Video)**: 90-second video demonstrating team process and building journey.
+- [ ] **Video 2 (Demo Video)**: End-to-end working demonstration of the project.
+- [ ] **Mandatory Social Promotion (`#RAGInGoa`)**:
+  - Videos posted on **Instagram**, **X (Twitter)**, and **LinkedIn** by **every member of Team Probix**.
+  - At least 1 team member's Instagram account must be public.
+  - Include mandatory hashtag: **`#RAGInGoa`** in every post.
 
 ---
 
-**#RAGInGoa**
+## ⏰ Timeline
+
+- **Task Launch**: August 13, 2026
+- **Final Submission Deadline**: August 22, 2026, 11:59 PM (No resubmissions allowed)
+
+---
+
+**Built with ❤️ by Team Probix for #RAGInGoa**
