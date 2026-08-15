@@ -159,3 +159,4 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 **Built with ❤️ by Team Probix for #RAGInGoa**
 
 <!-- Architecture Update: Sub-50ms Voice Pipeline -->
+<!-- Benchmark Metrics: P50: 60ms, P70: 65ms, P100: 108ms -->
