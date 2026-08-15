@@ -40,14 +40,14 @@ body {
   z-index: -5;
   background-image:
     linear-gradient(
-      rgba(245, 237, 226, 0.42),
-      rgba(238, 227, 214, 0.52)
+      rgba(246, 238, 226, 0.40),
+      rgba(238, 226, 212, 0.50)
     ),
-    url("/goa-beach.jpg?v=2");
+    url("/goa-beach.jpg");
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
-  filter: contrast(1.05) brightness(0.98);
+  filter: contrast(1.06) brightness(0.98);
 }
 
 /* Grain texture overlay */
@@ -83,8 +83,8 @@ body {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 122px;
-  padding: 24px 14px;
+  width: 124px;
+  padding: 24px 14px 20px 14px;
   background: #11100e;
   background-image: linear-gradient(180deg, #171512 0%, #0d0c0a 100%);
   color: #e5dac6;
@@ -107,16 +107,16 @@ body {
 }
 
 .brand-palm {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   margin-bottom: 6px;
-  color: #ea6d2d;
-  filter: drop-shadow(0 2px 8px rgba(234, 109, 45, 0.35));
+  color: #ea6826;
+  filter: drop-shadow(0 2px 8px rgba(234, 104, 38, 0.35));
 }
 
 .brand-title {
   font-family: "Inter", sans-serif;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.8px;
   line-height: 1.12;
@@ -125,7 +125,7 @@ body {
 
 .brand-goa {
   margin-top: 6px;
-  color: #ea6d2d;
+  color: #ea6826;
   font-family: "Inter", sans-serif;
   font-size: 11px;
   font-weight: 700;
@@ -140,7 +140,7 @@ body {
 }
 
 .tasks-title {
-  color: #ea6d2d;
+  color: #ea6826;
   font-family: "Inter", sans-serif;
   font-size: 10.5px;
   font-weight: 800;
@@ -177,17 +177,17 @@ body {
 }
 
 .task:hover {
-  border-color: #ea6d2d;
-  background: rgba(234, 109, 45, 0.12);
+  border-color: #ea6826;
+  background: rgba(234, 104, 38, 0.12);
   color: #ffffff;
 }
 
 .task.selected {
-  background: #ea6d2d;
+  background: #ea6826;
   color: #12100d;
-  border-color: #ea6d2d;
+  border-color: #ea6826;
   font-weight: 700;
-  box-shadow: 0 0 16px rgba(234, 109, 45, 0.35);
+  box-shadow: 0 0 16px rgba(234, 104, 38, 0.35);
 }
 
 .task-icon {
@@ -217,7 +217,7 @@ body {
 .sidebar-palms-svg {
   width: 100%;
   height: 48px;
-  color: #ea6d2d;
+  color: #ea6826;
   opacity: 0.75;
 }
 
@@ -226,9 +226,9 @@ body {
 ===================================================== */
 .main {
   position: relative;
-  width: calc(100% - 122px);
+  width: calc(100% - 124px);
   height: 100vh;
-  margin-left: 122px;
+  margin-left: 124px;
   overflow: hidden;
 }
 
@@ -318,8 +318,8 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #ea6d2d;
-  box-shadow: 0 0 8px #ea6d2d;
+  background: #ea6826;
+  box-shadow: 0 0 8px #ea6826;
   animation: livePulse 1.8s infinite ease-in-out;
 }
 
@@ -402,50 +402,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
 }
 
-.speak-word {
+.word-speak {
   display: inline-flex;
   align-items: center;
   letter-spacing: 1px;
 }
 
-.ai-word {
-  position: relative;
-  display: inline-block;
-  letter-spacing: 1px;
-}
-
-.ai-brush-underline {
-  position: absolute;
-  left: -2px;
-  right: -2px;
-  bottom: -4px;
-  height: 5.5px;
-  background: #ea6d2d;
-  border-radius: 3px;
-  transform: rotate(-1deg);
-  opacity: 0.92;
-}
-
-/* Palm cut-out in letter A of SPEAK */
-.a-palm-cutout {
+.palm-a-wrap {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.palm-inside-a {
+.palm-cutout-svg {
   position: absolute;
   width: 24px;
   height: 34px;
-  color: #eae1cf;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -46%);
   pointer-events: none;
+}
+
+.word-with {
+  display: inline-block;
+}
+
+.word-ai {
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.ai-underline-bar {
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -4px;
+  height: 5.5px;
+  background: #ea6826;
+  border-radius: 3px;
+  transform: rotate(-1deg);
+  opacity: 0.92;
 }
 
 .hero-subtitle {
@@ -457,7 +459,7 @@ body {
 }
 
 .hero-subtitle .sub-50ms {
-  color: #ea6d2d;
+  color: #ea6826;
   font-weight: 700;
 }
 
@@ -505,21 +507,21 @@ body {
   background: radial-gradient(circle at 35% 30%, #2b2823, #161512 65%, #0c0b09);
   border: 3px solid #1c1a16;
   box-shadow:
-    0 0 0 2px rgba(234, 109, 45, 0.4),
+    0 0 0 2px rgba(234, 104, 38, 0.4),
     0 6px 20px rgba(0, 0, 0, 0.4),
     inset 0 2px 4px rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ea6d2d;
+  color: #ea6826;
   transition: all 200ms ease;
 }
 
 .mic-button:hover .mic-body-disc {
   transform: scale(1.05);
   box-shadow:
-    0 0 0 3px #ea6d2d,
-    0 8px 25px rgba(234, 109, 45, 0.35);
+    0 0 0 3px #ea6826,
+    0 8px 25px rgba(234, 104, 38, 0.35);
 }
 
 .mic-button:active .mic-body-disc {
@@ -529,8 +531,8 @@ body {
 .mic-button.listening .mic-body-disc {
   background: radial-gradient(circle at 35% 30%, #361f13, #1f1008 65%, #100603);
   box-shadow:
-    0 0 0 4px #ea6d2d,
-    0 0 35px rgba(234, 109, 45, 0.6);
+    0 0 0 4px #ea6826,
+    0 0 35px rgba(234, 104, 38, 0.6);
   color: #ff914d;
 }
 
@@ -539,7 +541,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 1px solid rgba(234, 109, 45, 0.35);
+  border: 1px solid rgba(234, 104, 38, 0.35);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -634,7 +636,7 @@ body {
 }
 
 .waveform-container.active span {
-  background: #ea6d2d;
+  background: #ea6826;
   opacity: 0.95;
   animation: waveBar 600ms ease-in-out infinite alternate;
   animation-delay: var(--delay);
@@ -687,7 +689,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #ea6d2d;
+  color: #ea6826;
   font-family: "DM Mono", monospace;
   font-size: 13px;
   font-weight: 700;
@@ -721,7 +723,7 @@ body {
 .delhi-highlight-wrap {
   position: relative;
   display: inline-block;
-  color: #ea6d2d;
+  color: #ea6826;
   font-weight: 600;
 }
 
@@ -731,7 +733,7 @@ body {
   bottom: -4px;
   width: 100%;
   height: 6px;
-  color: #ea6d2d;
+  color: #ea6826;
   pointer-events: none;
 }
 
@@ -789,7 +791,7 @@ body {
 
 .latency-metric-col.is-total .metric-lbl,
 .latency-metric-col.is-total .metric-num {
-  color: #ea6d2d;
+  color: #ea6826;
   font-weight: 700;
 }
 
@@ -829,7 +831,7 @@ body {
 .footer-palm {
   width: 18px;
   height: 18px;
-  color: #ea6d2d;
+  color: #ea6826;
 }
 
 /* Wooden Vagator Beach Sign */
@@ -846,7 +848,7 @@ body {
   border: 2px solid #5a432d;
   border-radius: 3px;
   padding: 4px 10px;
-  color: #ea6d2d;
+  color: #ea6826;
   font-family: "Inter", sans-serif;
   font-size: 11px;
   font-weight: 800;
@@ -860,7 +862,7 @@ body {
 
 .sign-board .arrow-sign {
   font-size: 13px;
-  color: #ea6d2d;
+  color: #ea6826;
 }
 
 .sign-post {

@@ -265,18 +265,18 @@ export default function App() {
         <section className="hero">
           <div className="hero-title-wrap">
             <h1 className="hero-title">
-              <span className="speak-word">
-                SPE
-                <span className="a-palm-cutout">
-                  A
+              <span className="word-speak">
+                <span>SPE</span>
+                <span className="palm-a-wrap">
+                  <span>A</span>
                   <PalmInsideA />
                 </span>
-                K
+                <span>K</span>
               </span>
-              <span>WITH</span>
-              <span className="ai-word">
-                AI
-                <div className="ai-brush-underline" />
+              <span className="word-with">WITH</span>
+              <span className="word-ai">
+                <span>AI</span>
+                <div className="ai-underline-bar" />
               </span>
             </h1>
           </div>
@@ -512,13 +512,13 @@ function PalmIcon({ className }: { className?: string }) {
 
 function PalmInsideA() {
   return (
-    <svg viewBox="0 0 40 50" className="palm-inside-a" fill="currentColor">
-      <path d="M20 48 C20.5 35 21 24 20 12" stroke="currentColor" strokeWidth="2.5" fill="none" />
-      <path d="M20 13 C14 11 8 13 4 9 C10 8 16 9 20 12" />
-      <path d="M20 12 C17 6 17 2 19 0 C22 4 22 8 20 12" />
-      <path d="M20 13 C25 7 30 5 35 6 C32 10 27 12 20 13" />
-      <path d="M20 13 C26 13 31 15 35 19 C29 19 24 17 20 15" />
-      <path d="M20 13 C14 8 9 6 5 8 C8 12 13 14 20 15" />
+    <svg viewBox="0 0 40 50" className="palm-cutout-svg" fill="currentColor">
+      <path d="M20 48 C20.5 35 21 24 20 12" stroke="#f6eee1" strokeWidth="2.5" fill="none" />
+      <path d="M20 13 C14 11 8 13 4 9 C10 8 16 9 20 12" fill="#f6eee1" />
+      <path d="M20 12 C17 6 17 2 19 0 C22 4 22 8 20 12" fill="#f6eee1" />
+      <path d="M20 13 C25 7 30 5 35 6 C32 10 27 12 20 13" fill="#f6eee1" />
+      <path d="M20 13 C26 13 31 15 35 19 C29 19 24 17 20 15" fill="#f6eee1" />
+      <path d="M20 13 C14 8 9 6 5 8 C8 12 13 14 20 15" fill="#f6eee1" />
     </svg>
   );
 }
