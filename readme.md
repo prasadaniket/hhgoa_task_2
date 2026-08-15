@@ -162,3 +162,4 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 <!-- Benchmark Metrics: P50: 60ms, P70: 65ms, P100: 108ms -->
 <!-- Guardrails: Verified grounding and corpus refusal mechanisms -->
 <!-- Dataset: ai4bharat/MSMARCO-XI 241,572 passages -->
+<!-- Submission Details: Team Probix #RAGInGoa -->
