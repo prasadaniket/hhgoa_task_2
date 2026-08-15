@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #090a0c;
+    --bg-lift: #0f1015;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hot: rgba(255, 255, 255, 0.16);
+    --fg: #edeff3;
+    --fg-dim: #9aa1ad;
+    --fg-faint: #5c636f;
+    --signal: #00f0ff;
+    --grounded: #4ade80;
+    --abstain: #f5c451;
+    --refuse: #ff5a5a;
+    --mono: var(--font-mono), monospace;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.app-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Minimal Sonar Animation */
+@keyframes sonarExpand {
+  0% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.animate-sonar {
+  animation: sonarExpand 1.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
