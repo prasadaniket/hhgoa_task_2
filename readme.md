@@ -173,3 +173,5 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 ### Speech-to-Text: Sarvam AI Saaras v3
 
 ### Vector Database: MongoDB Atlas HNSW Vector Search
+
+### Inference: OpenRouter Streaming Pipeline
