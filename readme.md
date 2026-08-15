@@ -163,3 +163,4 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 <!-- Guardrails: Verified grounding and corpus refusal mechanisms -->
 <!-- Dataset: ai4bharat/MSMARCO-XI 241,572 passages -->
 <!-- Submission Details: Team Probix #RAGInGoa -->
+<!-- STT: Sarvam AI Saaras v3 Hindi & Marathi integration -->
