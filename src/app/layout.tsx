@@ -1,9 +1,23 @@
 import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
+
 export const metadata: Metadata = {
-  title: "Hacker House Goa 2026 | Task 2 - Voice-Enabled RAG",
-  description: "Low-Latency Voice AI RAG Model built by Team Probix for #RAGInGoa",
+  title: "GRag — Voice RAG for Hindi & Marathi | Team Probix",
+  description: "Speak a question in Hindi or Marathi. Get grounded, cited context from MSMARCO-XI in under 200ms.",
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f1015'/><rect x='26' y='32' width='10' height='36' rx='5' fill='%2300f0ff'/><rect x='45' y='20' width='10' height='60' rx='5' fill='%2300f0ff'/><rect x='64' y='38' width='10' height='24' rx='5' fill='%2300f0ff'/></svg>",
+  },
 };
 
 export default function RootLayout({
@@ -12,16 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-[#090a0c] text-zinc-100 font-sans">
+        {children}
+      </body>
     </html>
   );
 }
