@@ -167,3 +167,4 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 <!-- Database: MongoDB Atlas Vector Search () with HNSW -->
 <!-- Inference: OpenRouter streamText with sub-50ms TTFT -->
 <!-- Deployment: Edge runtime & Node.js driver hybrid architecture -->
+<!-- Hackathon: Built for Hacker House Goa 2026 (hhgoa.com) -->
