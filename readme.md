@@ -165,3 +165,4 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 <!-- Submission Details: Team Probix #RAGInGoa -->
 <!-- STT: Sarvam AI Saaras v3 Hindi & Marathi integration -->
 <!-- Database: MongoDB Atlas Vector Search () with HNSW -->
+<!-- Inference: OpenRouter streamText with sub-50ms TTFT -->
