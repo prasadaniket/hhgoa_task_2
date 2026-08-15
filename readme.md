@@ -177,3 +177,5 @@ Built-in benchmark harness to measure latency metrics across a set of test queri
 ### Inference: OpenRouter Streaming Pipeline
 
 ### Telemetry & Benchmarks: P50 (60ms), P70 (65ms), P100 (108ms)
+
+### Hackathon Submission: Built for Hacker House Goa 2026 (hhgoa.com)
