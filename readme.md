@@ -1,13 +1,13 @@
-# 🎙️ GRag — Sub-200ms Voice RAG Intelligence Engine for Indic Languages
+# 🎙️ GRag - Sub-200ms Voice RAG Intelligence Engine for Indic Languages
 
 > **High-Throughput, Sub-200ms Voice Retrieval-Augmented Generation for Hindi, Marathi & English**  
 > Built by **Team Probix** for [**Hacker House Goa 2026**](https://hhgoa.com/) · **Task 2 Shortlisting Submission**  
 > **Mandatory Hashtag**: **`#RAGInGoa`**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-grag.vercel.app-00f0ff?style=for-the-badge&logo=vercel&logoColor=black)](https://grag.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-grag.vercel.app-00f0ff?style=for-the-badge&logo=vercel&logoColor=black)](https://grag.vercel.app)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-hhgoa__task__2-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/prasadaniket/hhgoa_task_2)
 [![Event](https://img.shields.io/badge/Hacker_House_Goa-2026-ff007f?style=for-the-badge)](https://hhgoa.com/)
-[![Latency SLA](https://img.shields.io/badge/Latency_Budget-<200ms_SLA-10b981?style=for-the-badge)](https://grag.vercel.app/)
+[![Latency SLA](https://img.shields.io/badge/Latency_Budget-<200ms_SLA-10b981?style=for-the-badge)](https://grag.vercel.app)
 [![Dataset](https://img.shields.io/badge/Dataset-MSMARCO--XI_(241k_chunks)-f59e0b?style=for-the-badge)](https://huggingface.co/datasets/ai4bharat/MSMARCO-XI)
 [![License](https://img.shields.io/badge/License-MIT-zinc?style=for-the-badge)](LICENSE)
 
@@ -150,7 +150,7 @@ How each mandate from the **Hacker House Goa 2026 Task 2 Specification** is engi
 
 | # | Task Requirement | Architectural Implementation | Source Code File | Evidence / Verification |
 |---|---|---|---|---|
-| **1** | **Speech-to-Text (STT)**<br/>*Sarvam AI or ElevenLabs* | Integrated **Sarvam AI Saaras v3** (with ElevenLabs fallback) optimized for Hindi, Marathi, and Indian-accented speech. | [`src/lib/services.ts`](file:///h:/hhgoa/hhgoa_task_2/src/lib/services.ts)<br/>[`src/app/api/process/route.ts`](file:///h:/hhgoa/hhgoa_task_2/src/app/api/process/route.ts) | 18–35ms measured latency, code-mix tolerance, dual voice/text support. |
+| **1** | **Speech-to-Text (STT)**<br/>*Sarvam AI or ElevenLabs* | Integrated **Sarvam AI Saaras v3** (with ElevenLabs fallback) optimized for Hindi, Marathi, and Indian-accented speech. | [`src/lib/services.ts`](file:///h:/hhgoa/hhgoa_task_2/src/lib/services.ts)<br/>[`src/app/api/process/route.ts`](file:///h:/hhgoa/hhgoa_task_2/src/app/api/process/route.ts) | 18-35ms measured latency, code-mix tolerance, dual voice/text support. |
 | **2** | **Advanced Chunking Strategy**<br/>*Non-naive, multi-strategy* | Ingestion pipeline comparing **Fixed-Size**, **Semantic Boundary**, and **Metadata-Aware Overlap** on `MSMARCO-XI`. | [`scripts/index-data.ts`](file:///h:/hhgoa/hhgoa_task_2/scripts/index-data.ts)<br/>[`src/app/api/chunks/route.ts`](file:///h:/hhgoa/hhgoa_task_2/src/app/api/chunks/route.ts) | 241,572 multilingual passages indexed in MongoDB Atlas `ai_demo.chunks`. |
 | **3** | **Strict Sub-200ms Latency**<br/>*STT + Retrieval + Generation* | Server-Sent Events (SSE) streaming + 1536-dim HNSW vector search + sub-50ms TTFT. | [`src/app/api/process/route.ts`](file:///h:/hhgoa/hhgoa_task_2/src/app/api/process/route.ts) | **P50: 60ms**, **P70: 65ms**, **P100: 108ms** (100% within SLA budget). |
 | **4** | **Latency Percentile Profiler**<br/>*P50 / P70 / P100 Analytics* | Dedicated telemetry suite and API executing multi-query suites with dynamic percentile math. | [`src/app/api/benchmark/route.ts`](file:///h:/hhgoa/hhgoa_task_2/src/app/api/benchmark/route.ts)<br/>[`src/components/TelemetryProfiler.tsx`](file:///h:/hhgoa/hhgoa_task_2/src/components/TelemetryProfiler.tsx) | Live in-app profiling card + public API at `/api/benchmark`. |
@@ -250,6 +250,7 @@ hhgoa_task_2/
 ├── docs/
 │   ├── require.md                  # Official HH Goa Task 2 requirements document
 │   └── techstack.md                # Architecture and latency optimization specification
+├── LICENSE                         # MIT License
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -350,12 +351,18 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 👥 Team & Submission Information
+## 👥 Team Probix & Contributors
 
-- **Project**: **GRag — Indic Voice RAG Intelligence Engine**
-- **Team**: **Team Probix**
-- **Event**: [Hacker House Goa 2026](https://hhgoa.com/) (Aug 13 – Aug 22, 2026)
-- **Challenge**: Task 2 — Voice-Enabled RAG System
+Built with ❤️ by **Team Probix** for [Hacker House Goa 2026](https://hhgoa.com/) (Task 2 — Voice-Enabled RAG System):
+
+| Contributor | GitHub Profile | Role / Focus Area |
+|---|---|---|
+| **Aniket Prasad** | [@prasadaniket](https://github.com/prasadaniket) | Architecture, RAG Pipeline & Fullstack Next.js Engineering |
+| **Kruturaj Padwal** | [@kruturaj-20](https://github.com/kruturaj-20) | STT Audio Processing, Indic Tokenization & Evaluation |
+| **Prathamesh Patil** | [@prathamesh-patil-5090](https://github.com/prathamesh-patil-5090) | MongoDB Atlas Vector Search, Ingestion & Telemetry Benchmarks |
+
+- **Event**: [Hacker House Goa 2026](https://hhgoa.com/) (Aug 13 - Aug 22, 2026)
+- **Challenge**: Task 2 - Voice-Enabled RAG System
 - **Mandatory Hashtag**: **`#RAGInGoa`**
 
 ---
