@@ -15,7 +15,7 @@
 
 ## 🔗 Quick Links & Live Deployments
 
-- 🌐 **Live Web Application**: [https://grag.vercel.app/](https://grag.vercel.app/)
+- 🌐 **Live Web Application**: [grag.vercel.app](https://grag.vercel.app)
 - 💻 **Source Code Repository**: [https://github.com/prasadaniket/hhgoa_task_2](https://github.com/prasadaniket/hhgoa_task_2) *(Branch: `grag`)*
 - ⚡ **Live Benchmark Endpoint**: `POST https://grag.vercel.app/api/benchmark`
 - 📚 **Dataset Citation**: [`ai4bharat/MSMARCO-XI`](https://huggingface.co/datasets/ai4bharat/MSMARCO-XI) (HuggingFace)
@@ -337,7 +337,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📋 Hacker House Goa 2026 Submission Checklist
 
-- [x] **Live Working Demo**: [https://grag.vercel.app/](https://grag.vercel.app/)
+- [x] **Live Working Demo**: [grag.vercel.app](https://grag.vercel.app)
 - [x] **Public GitHub Repository**: [https://github.com/prasadaniket/hhgoa_task_2](https://github.com/prasadaniket/hhgoa_task_2) *(Branch: `grag`)*
 - [x] **Voice-to-Text Implementation**: Sarvam AI Saaras v3 + ElevenLabs fallback for Indic languages.
 - [x] **Vast Chunking Strategy**: Evaluated 4 distinct chunking paradigms on `ai4bharat/MSMARCO-XI`.
